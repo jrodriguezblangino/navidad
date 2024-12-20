@@ -1,0 +1,377 @@
+body {
+    font-family: 'Moonring', 'Lemon Milk', sans-serif;
+    text-align: center;
+    background-color: #F9C0AB;
+    margin: 0;
+    padding: 20px;
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#playerInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#playerInfo img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.playerCard {
+    perspective: 1000px;
+    width: 250px;
+    height: 300px;
+    margin: 20px 0;
+    cursor: pointer;
+    transition: transform 0.3s;
+    background-color: #F9C0AB;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transform-style: preserve-3d;
+}
+
+.playerCard:hover .card-inner {
+    transform: scale(1.1);
+}
+
+.playerCard.selected .card-inner {
+    border: 3px solid #A8CD89;
+}
+
+.playerCard img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+#memoryGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    max-width: 800px;
+    margin: 20px auto 2.8rem auto;
+}
+
+.card {
+    aspect-ratio: 1;
+    background: #355F2E;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+    background: #F9C0AB;
+}
+
+#questionContainer {
+    margin: 20px auto;
+    background-color: #A8CD89;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    animation: shake 0.5s infinite;
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 0); }
+    25% { transform: translate(-1px, 0); }
+    50% { transform: translate(1px, 0); }
+    75% { transform: translate(-1px, 0); }
+    100% { transform: translate(0, 0); }
+}
+
+.option {
+    margin: 10px auto;
+    padding: 15px;
+    width: 80%;
+    max-width: 400px;
+    background: #F4E0AF;
+    border: 2px solid #A8CD89;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    animation: fadeIn 0.5s;
+}
+
+.option:hover {
+    background: #F9C0AB;
+}
+
+#gameOver {
+    width: 70vw;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #355F2E;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    display: inline-block;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#winnerImage {
+    max-width: 70vw;
+    margin: 20px auto;
+    display: block;
+}
+
+#restartButton {
+    padding: 10px 20px;
+    background: #A8CD89;
+    color: #672222;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+
+#formula1Quiz {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+#playerSelection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #F9C0AB;
+    animation: fadeIn 1s ease-in;
+}
+
+#playerSelection h1 {
+    background: #A8CD89;
+    color: #355F2E;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    display: inline-block;
+    font-family: 'Moonring', 'Lemon Milk', sans-serif;
+    animation: fadeIn 3s ease-in;
+    opacity: 2;
+    animation-fill-mode: forwards;
+    width: 80%;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#playerCards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.playerCard p {
+    background: rgba(255, 255, 255, 0.8);
+    color: #672222;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    margin-top: 10px;
+    font-family: 'Moonring', 'Lemon Milk', sans-serif;
+    text-transform: uppercase;
+}
+
+.playerCard[data-player="Felipe"] p {
+    background-color: #A8CD89;
+}
+
+.playerCard[data-player="Vicente"] p {
+    background-color: #A8CD89;
+}
+
+.playerCard[data-player="Pablo"] p {
+    background-color: #A8CD89;
+}
+
+@media (max-width: 600px) {
+    #playerInfo {
+        position: static;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    img#playerAvatar {
+        width: 130px;
+        height: 130px;
+    }
+
+
+
+    #playerName {
+        margin-top: 5px;
+    }
+
+    .playerCard {
+        width: 200px;
+        height: 250px;
+        margin: 50px 0
+    }
+
+    .card-inner {
+        transition: transform 0.3s;
+    }
+
+    .playerCard:hover .card-inner {
+        transform: scale(1.1);
+    }
+
+    #playerAvatar {
+        width: 200px;
+    }
+
+    #playerNameContainer {
+        margin-bottom: 40px;
+    }
+}
+
+.card.zoomed {
+    transform: scale(1.2);
+    transition: transform 0.3s;
+}
+
+#playerName {
+    display: block;
+    margin-top: 10px;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+#playerAvatar {
+    width: 150px;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 5px;
+}
+
+#score {
+    background: rgba(255, 255, 255, 0.8);
+    color: #355F2E;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1.8em;
+    margin-top: 1.8rem;
+    font-family: 'Moonring', 'Lemon Milk', sans-serif;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+#banner {
+    margin-bottom: 1rem;
+    background-color: #355F2E;
+    color: white;
+    padding: 10px;
+    font-size: 1.4em;
+    font-weight: 100;
+    text-align: center;
+    position: relative;
+    z-index: 1000;
+    animation: slideIn 1s ease-in-out;
+    font-family: 'Amatic SC', cursive;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.banner-text {
+    display: inline-block;
+}
+
+.banner-letter {
+    opacity: 0;
+    display: inline-block;
+    animation: fadeIn 0.5s forwards;
+    margin-right: 2px;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+#playerSelection {
+    background-color: #F4E0AF;
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.spin {
+    animation: spin 1s forwards;
+}
+
+#quizScore {
+    background: #fff9c4;
+    color: #333;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1.5em;
+    margin-top: 20px;
+    font-family: 'Moonring', 'Lemon Milk', sans-serif;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
