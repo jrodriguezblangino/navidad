@@ -38,6 +38,9 @@ body {
     cursor: pointer;
     transition: transform 0.3s;
     background-color: #F9C0AB;
+    border: 5px solid #000; /* Borde grueso negro */
+    box-shadow: 10px 10px 0px #333; /* Sombra para efecto de cómic */
+    font-family: 'Comic Sans MS', 'Comic Neue', sans-serif; /* Fuente estilo cómic */
 }
 
 .card-inner {
@@ -61,6 +64,7 @@ body {
     height: 100%;
     object-fit: cover;
     border-radius: 10px;
+    border: 3px solid #000; /* Borde negro para la imagen */
 }
 
 #memoryGrid {
@@ -76,7 +80,7 @@ body {
     background: #355F2E;
     border-radius: 8px;
     cursor: pointer;
-    transition: transform 0.3s;
+    transition: transform 0.6s ease;
 }
 
 .card.flipped {
@@ -208,8 +212,10 @@ body {
     border-radius: 5px;
     font-size: 1.2em;
     margin-top: 10px;
-    font-family: 'Moonring', 'Lemon Milk', sans-serif;
+    font-family: 'Comic Sans MS', 'Comic Neue', sans-serif; /* Fuente estilo cómic */
     text-transform: uppercase;
+    border: 2px solid #000; /* Borde negro para el texto */
+    box-shadow: 5px 5px 0px #333; /* Sombra para efecto de cómic */
 }
 
 .playerCard[data-player="Felipe"] p {
@@ -318,8 +324,18 @@ body {
     text-align: center;
     position: relative;
     z-index: 1000;
-    animation: slideIn 1s ease-in-out;
-    font-family: 'Amatic SC', cursive;
+    font-family: 'Comic Sans MS', 'Comic Neue', sans-serif;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+.banner-text {
+    display: inline-block;
+    animation: marquee 10s linear infinite;
+    text-transform: uppercase;
+    animation-delay: 0s; /* Asegura que no haya retraso */
+    animation-play-state: running; /* Asegura que la animación esté en ejecución */
 }
 
 @keyframes slideIn {
@@ -333,20 +349,12 @@ body {
     }
 }
 
-.banner-text {
-    display: inline-block;
-}
-
-.banner-letter {
-    opacity: 0;
-    display: inline-block;
-    animation: fadeIn 0.5s forwards;
-    margin-right: 2px;
-}
-
-@keyframes fadeIn {
-    to {
-        opacity: 1;
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
     }
 }
 
@@ -374,4 +382,31 @@ body {
     font-family: 'Moonring', 'Lemon Milk', sans-serif;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-family: 'Comic Sans MS', 'Comic Neue', sans-serif; /* Fuente estilo cómic */
+    color: #672222;
+    text-transform: uppercase;
+    text-align: center;
+    border: 5px solid #000; /* Borde grueso negro */
+    padding: 10px;
+    background-color: #F9C0AB;
+    box-shadow: 10px 10px 0px #333; /* Sombra para efecto de cómic */
+    display: inline-block;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
